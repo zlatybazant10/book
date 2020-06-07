@@ -5,7 +5,8 @@
     <div class="row">
         <div class="col-3 p-5">
 {{--            {{dd($user->profile->getImage())}}--}}
-            <img src="{{$user->profile->getImage()}}" class="rounded-circle" style="max-height: 150px" >
+{{--            <img src="{{$user->profile->getImage()}}" class="rounded-circle" style="max-height: 150px" >--}}
+            <img src="{{$user->profile->profileImage()}}" class="rounded-circle" style="max-height: 150px" >
         </div>
         <div class="col-9 pt-5">
             <div class="d-flex justify-content-between align-items-baseline">
