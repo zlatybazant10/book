@@ -35,5 +35,5 @@ Route::patch('/books/{book}-{slug}', 'BookController@update');
 Route::delete('/books/{book}-{slug}', 'BookController@destroy');
 
 Route::post('/checkout/{book}', 'CheckoutController@store');
-Route::post('/checkin/{book}', 'CheckinController@store');
+Route::get('/checkin/{book}', 'CheckinController@store');
 

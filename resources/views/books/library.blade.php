@@ -18,12 +18,19 @@
                     <h5 class="row pl-5"><strong>Genre:</strong><a>{{$book->genre}}</a></h5>
                     <h6 class="row pl-5" style="display: inline-block; width: 800px;  overflow: hidden !important; text-overflow: ellipsis;">{{$book->description}}</h6>
                     <div class="row pl-5 pt-5">
-                        <button class="rounded btn-dark" type="submit" onclick="Book::checkin($user)">{{__('Get this book')}}</button>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
-    </div>
+                        {{--}}<button class="rounded btn-dark" type="submit" onclick="Reservation::checkin($user)">{{__('Get this book')}}</button>--}}
+    {{--<form action="/checkin/{{$book->isbn}}" method="post" enctype="multipart/form-data">
+        @csrf
+        <label for="isbn">ISBN</label>
+        <input id="isbn" type="text" value="{{ $book->isbn }}">
+        <button class="btn-primary" type="submit">Add new post</button>
+    </form>--}}
+                        <p> <a href="/checkin/{{$book->isbn}}" > order book</a></p>
+</div>
+</div>
+</div>
+@endforeach
+</div>
+</div>
 
 @endsection

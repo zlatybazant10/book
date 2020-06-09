@@ -31,6 +31,7 @@ class Book extends Model
     }
 
     public function checkin($user){
+        dd($user);
         $reservation = $this->reservations()->where('user_id', $user->id)
             ->whereNotNull('chcecked_out_at')
             ->whereNull('chcecked_in_at')

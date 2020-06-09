@@ -13,6 +13,7 @@ class CheckinController extends Controller
     }
 
     public function store(Book $book) {
+        dd($book);
         try {
             $book->checkin(auth()->user());
         } catch (\Exception $e) {
