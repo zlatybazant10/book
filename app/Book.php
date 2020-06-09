@@ -7,6 +7,11 @@ use Psy\Util\Str;
 
 class Book extends Model
 {
+
+    protected $fillable = [
+        'title', 'author', 'genre', 'description',
+    ];
+
     protected $guarded = [];
 
     public function path(){
@@ -15,7 +20,7 @@ class Book extends Model
 
     public function checkout($user) {
         $this->reservations()->create([
-            'user_id' = $user->id,
+            'user_id' => $user->id,
             'chcecked_out_at' => now()
         ]);
     }
@@ -35,8 +40,4 @@ class Book extends Model
         return $this->hasMany(Reservation::class);
     }
 
-
-    public function user() {
-        return $this->belongsTo(User::class);
-    }
 }

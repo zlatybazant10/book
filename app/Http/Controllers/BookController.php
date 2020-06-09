@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 class BookController extends Controller
 {
 
+    public function index(Book $book){
+
+        return view('books.library', compact('book'));
+    }
+
     public function store() {
         $book = Book::create($this->validateRequest());
 
@@ -30,7 +35,6 @@ class BookController extends Controller
             'title' => 'required',
             'author' => 'required',
             'genre' => 'required',
-            'pages' => 'required',
         ]);
     }
 
