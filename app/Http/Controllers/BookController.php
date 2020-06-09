@@ -8,9 +8,11 @@ use Illuminate\Http\Request;
 class BookController extends Controller
 {
 
-    public function index(Book $book){
+    public function index(){
 
-        return view('books.library', compact('book'));
+        $books = Book::all();
+
+        return view('books.library', compact('books'));
     }
 
     public function store() {

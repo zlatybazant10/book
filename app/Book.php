@@ -8,8 +8,13 @@ use Psy\Util\Str;
 class Book extends Model
 {
 
+    /**public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+    }**/
+
     protected $fillable = [
-        'title', 'author', 'genre', 'description',
+        'title', 'author', 'genre', 'description','img',
     ];
 
     protected $guarded = [];
