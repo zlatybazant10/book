@@ -12,7 +12,7 @@ class CheckoutController extends Controller
         $this->middleware('auth');
     }
 
-    public function store(Book $book){
+    public function update(Book $book){
         $book->checkout(auth()->user());
     }
 }

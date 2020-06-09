@@ -12,12 +12,9 @@ class CheckinController extends Controller
         $this->middleware('auth');
     }
 
-    public function store(Book $book) {
-        dd($book);
-        try {
-            $book->checkin(auth()->user());
-        } catch (\Exception $e) {
-            return response([], 404);
-        }
+    public function update(Book $book)
+    {
+        $book->checkin(auth()->user());
+        return redirect('/books');
     }
 }
