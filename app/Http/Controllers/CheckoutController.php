@@ -14,5 +14,7 @@ class CheckoutController extends Controller
 
     public function update(Book $book){
         $book->checkout(auth()->user());
+
+        return view('books.checkout', compact('book'));
     }
 }
