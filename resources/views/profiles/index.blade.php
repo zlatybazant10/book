@@ -39,7 +39,9 @@
                 <h5 class="row pl-5"><strong>Genre:</strong><a>{{$book->genre}}</a></h5>
                 <h6 class="row pl-5"
                     style="display: inline-block; width: 800px;  overflow: hidden !important; text-overflow: ellipsis;">{{$book->description}}</h6>
+                {{--<a href="/bookDownload/12rules.pdf" download="DOWNLOAD"/>--}}
                 <div class="row pl-5 pt-5">
+                    <a href="/bookDownload/12rules.pdf" download="">Download PDF</a>
                 </div>
             </div>
         </div>

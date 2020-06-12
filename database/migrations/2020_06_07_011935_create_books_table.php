@@ -20,6 +20,8 @@ class CreateBooksTable extends Migration
             $table->string('title')->nullable();
             $table->string('author')->nullable();
             $table->string('genre')->nullable();
+            $table->string('download')->nullable();
+            $table->text('comment')->nullable();
             $table->longText('description')->nullable();
             $table->timestamps();
 
