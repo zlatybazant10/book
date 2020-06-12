@@ -35,10 +35,8 @@ class ProfilesController extends Controller
             array_push($bookid, $reservation->book_id);
         }
 
-        //$reservations = \App\Reservation::where('user_id', $user->id)->first()->book_id;
-        //$reservedBooks = \App\Book::where('book_id', $reservations->id)->first();
-        //dd($reservations);
         $books = \App\Book::whereIn('id', $bookid)->get();
+
 
         return view('profiles.index', compact('user', 'books'));
     }

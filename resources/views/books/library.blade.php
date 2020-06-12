@@ -28,7 +28,7 @@
                             </form>
                         </div>
                         <div class="row pl-5 pt-5">
-                            <a href="/comments">Book reviews</a>
+                            <a href="/comments/{{$book->id}}">Book reviews</a>
                         </div>
                     </div>
                 </div>

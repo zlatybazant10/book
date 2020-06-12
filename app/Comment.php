@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
+    protected $guarded = [];
+
     public function post(){
-        return $this->belongsTo('App\Book');
+        return $this->belongsTo(Book::class, 'book_id');
     }
+
 }

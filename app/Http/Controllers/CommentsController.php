@@ -41,7 +41,7 @@ class CommentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
         //
     }
@@ -75,9 +75,11 @@ class CommentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Comment $comment)
     {
-        //
+        $comment->review(auth()->user());
+
+        return view('comments.update', compact('comment'));
     }
 
     /**

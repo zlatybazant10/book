@@ -45,8 +45,16 @@ class Book extends Model
         return $this->hasMany(Reservation::class);
     }
 
+
     public function comments() {
-        return $this->hasMany('App\Comment');
+        return $this->hasMany(Comment::class);
+    }
+
+    public function review(User $user) {
+        $this->comments()->create([
+            'user_id' => $user->id,
+            'commented_on' => now()
+        ]);
     }
 
 }

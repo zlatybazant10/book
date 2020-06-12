@@ -29,8 +29,14 @@
                     @endif
                 </div>
 
-                <div class="row pt-4">
-                    <button class="btn btn-primary">Add review</button>
+                <div class="row">
+                    <form action="{{ route('comments.update', ['comment' => $comment]) }}" method="POST"
+                          enctype="multipart/form-data">
+                        @csrf
+                        @method('PATCH')
+
+                        <button type="submit" class="btn btn-primary">Post</button>
+                    </form>
                 </div>
             </div>
         </div>
