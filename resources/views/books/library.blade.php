@@ -19,13 +19,6 @@
                         <h6 class="row pl-5"
                             style="display: inline-block; width: 800px;  overflow: hidden !important; text-overflow: ellipsis;">{{$book->description}}</h6>
                         <div class="row pl-5 pt-5">
-                            {{--}}<button class="rounded btn-dark" type="submit" onclick="Reservation::checkin($user)">{{__('Get this book')}}</button>--}}
-                            {{--<form action="/checkin/{{$book->isbn}}" method="post" enctype="multipart/form-data">
-                                @csrf
-                                <label for="isbn">ISBN</label>
-                                <input id="isbn" type="text" value="{{ $book->isbn }}">
-                                <button class="btn-primary" type="submit">Add new post</button>
-                            </form>--}}
                             <form action="{{ route('checkout.update', ['book' => $book]) }}" method="POST"
                                   enctype="multipart/form-data">
                                 @csrf
@@ -33,6 +26,9 @@
 
                                 <button type="submit" class="btn btn-primary">Order book</button>
                             </form>
+                        </div>
+                        <div class="row pl-5 pt-5">
+                            <a href="/comments">Book reviews</a>
                         </div>
                     </div>
                 </div>
