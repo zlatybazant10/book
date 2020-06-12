@@ -63,6 +63,6 @@ class User extends Authenticatable
 
     public function reservedBooks()
     {
-        return $this->belongsToMany('App\Book');
+        return $this->hasMany(Reservation::class);
     }
 }
