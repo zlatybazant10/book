@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use App\User;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
 
-    public function index(){
+    public function index(User $user){
 
         $books = Book::all();
-
-        return view('books.library', compact('books'));
+        return view('books.library', compact('books', 'user'));
     }
 
     public function store() {

@@ -5,7 +5,8 @@
     <div class="container">
         <div class="row">
         <div class="d-flex">
-            <a href="javascript:history.back()">Back to library</a>
+            {{--<a href="javascript:history.back()">Back to library</a>--}}
+            <a href="/books">Back to library</a>
         </div>
         <div class="d-flex col-8 offset-2">
             <h1><strong>All reviews</strong></h1>
