@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Book;
 use Illuminate\Http\Request;
 
 class CommentsController extends Controller
@@ -25,14 +26,23 @@ class CommentsController extends Controller
         return view('books.review', compact('comment'));
     }
 
+    public function redirect()
+    {
+        return view('books.create');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Book $book)
     {
-        //
+        //$review = [];
+        $book->checkout(auth()->user());
+
+        //return view('books.create', compact('book'));
+        return redirect('/comments/create');
     }
 
     /**
@@ -43,7 +53,16 @@ class CommentsController extends Controller
      */
     public function store()
     {
-        //
+        $data = request()->validate([
+            'comment' => 'required',
+        ]);
+
+        auth()->user()->comments()->create($data);
+
+        \App\Comment()::create($data);
+
+        //return view('books.review', compact('comment'));
+        return redirect('/comments/create');
     }
 
     /**
@@ -75,11 +94,9 @@ class CommentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Comment $comment)
+    public function update()
     {
-        $comment->review(auth()->user());
-
-        return view('comments.update', compact('comment'));
+        //
     }
 
     /**

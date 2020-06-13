@@ -46,7 +46,7 @@ class Book extends Model
     }
 
 
-    public function comments() {
+    /**public function comments() {
         return $this->hasMany(Comment::class);
     }
 
@@ -55,6 +55,6 @@ class Book extends Model
             'user_id' => $user->id,
             'commented_on' => now()
         ]);
-    }
+    }**/
 
 }

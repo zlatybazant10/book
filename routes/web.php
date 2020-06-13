@@ -37,7 +37,8 @@ Route::delete('/books/{book}-{slug}', 'BookController@destroy');
 Route::patch('/checkout/{book}', 'CheckoutController@update')->name('checkout.update');
 Route::patch('/checkin/{id}', 'CheckinController@update')->name('checkin.update');
 
-Route::get('/comments/{id}', ['uses' => 'CommentsController@index', 'as' => 'comments.show']);
-Route::patch('/comments', ['uses' => 'CommentsController@update', 'as' => 'comments.update']);
-
-
+//Route::post('/comments/{id}', 'CommentsController@post');
+//Route::get('/comments/create', 'CommentsController@create');
+Route::get('/comments/{id}', 'CommentsController@index');
+Route::get('/comments/create', 'CommentsController@redirect');
+Route::post('/comments/create', 'CommentsController@post');

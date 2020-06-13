@@ -8,8 +8,9 @@ class Comment extends Model
 {
     protected $guarded = [];
 
-    public function post(){
-        return $this->belongsTo(Book::class, 'book_id');
+    public function book(){
+        //return $this->belongsTo(Book::class, 'book_id');
+        return $this->belongsTo(Book::class);
     }
 
 }
