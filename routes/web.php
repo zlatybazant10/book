@@ -40,5 +40,5 @@ Route::patch('/checkin/{id}', 'CheckinController@update')->name('checkin.update'
 //Route::post('/comments/{id}', 'CommentsController@post');
 //Route::get('/comments/create', 'CommentsController@create');
 Route::get('/comments/{id}', 'CommentsController@index');
-Route::get('/comments/create', 'CommentsController@redirect');
-Route::post('/comments/create', 'CommentsController@post');
+Route::get('/create', 'ReviewController@index');
+Route::post('/comments/create', 'ReviewController@store')->name('comment.create');

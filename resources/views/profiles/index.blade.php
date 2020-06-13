@@ -41,7 +41,7 @@
                     style="display: inline-block; width: 800px;  overflow: hidden !important; text-overflow: ellipsis;">{{$book->description}}</h6>
                 {{--<a href="/bookDownload/12rules.pdf" download="DOWNLOAD"/>--}}
                 <div class="row pl-5 pt-5">
-                    <a href="/bookDownload/12rules.pdf" download="">Download PDF</a>
+                    <a href="/bookDownload/{{$book->download}}" download="">Download PDF</a>
                 </div>
             </div>
         </div>
