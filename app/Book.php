@@ -46,11 +46,11 @@ class Book extends Model
     }
 
 
-    /**public function comments() {
-        return $this->hasMany(Comment::class);
+    public function comments() {
+    return $this->hasMany(Comment::class);
     }
 
-    public function review(User $user) {
+    /**public function review(User $user) {
         $this->comments()->create([
             'user_id' => $user->id,
             'commented_on' => now()

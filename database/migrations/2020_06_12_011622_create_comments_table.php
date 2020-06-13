@@ -17,8 +17,8 @@ class CreateCommentsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name')->nullable();
             $table->text('comment')->nullable();
-            $table->unsignedBigInteger('user_id')->nullable();
-            //$table->unsignedBigInteger('book_id')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('book_id');
             $table->timestamp('commented_on')->nullable();
             $table->timestamps();
 

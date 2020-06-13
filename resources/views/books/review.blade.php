@@ -11,7 +11,7 @@
             <h1><strong>All reviews</strong></h1>
         </div>
         <div class="d-flex">
-            <a href="/create">Post review here</a>
+            <a href="/create/{{$book->id}}">Post review here</a>
         </div>
         </div>
     </div>

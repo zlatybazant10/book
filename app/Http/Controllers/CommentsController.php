@@ -19,11 +19,12 @@ class CommentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Book $book)
     {
-        $comment = Comment::all();
 
-        return view('books.review', compact('comment'));
+        $comments = $book->comments();
+
+        return view('books.review', compact('comments', 'book'));
     }
 
     /**
