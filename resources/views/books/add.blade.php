@@ -8,6 +8,9 @@
             @method('POST')
 
             <div class="row">
+                <div class="d-flex">
+                    <a href="/profile/{{$user->id}}">Back to profile</a>
+                </div>
                 <div class="col-8 offset-2">
 
                     <div class="row">

@@ -14,7 +14,9 @@ class ReviewController extends Controller
 
     public function index(Book $book) {
 
-        return view('books.create', compact('book'));
+        $user = auth()->user();
+
+        return view('books.create', compact('book', 'user'));
     }
 
     public function create()

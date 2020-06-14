@@ -3,13 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use App\User;
 use Illuminate\Http\Request;
 
 class AddBookController extends Controller
 {
-    public function index()
+    public function __construct()
     {
-        return view('books.add');
+        $this->middleware('auth');
+    }
+
+    public function index(User $user)
+    {
+        $user = auth()->user();
+        return view('books.add', compact('user'));
     }
 
     public function store() {

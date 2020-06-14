@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="container">
-        <div class="row">
+            <div class="row">
             <div class="d-flex">
                 {{--<a href="javascript:history.back()">Back to profile</a>--}}
                 <a href="/profile/{{$user->id}}">Back to profile</a>

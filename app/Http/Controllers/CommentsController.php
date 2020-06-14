@@ -23,10 +23,11 @@ class CommentsController extends Controller
     {
 
         $comments = $book->comments()->latest()->paginate(6);
+        $user = auth()->user();
 
         //dd($comments);
 
-        return view('books.review', compact('comments', 'book'));
+        return view('books.review', compact('comments', 'book', 'user'));
     }
 
     /**
