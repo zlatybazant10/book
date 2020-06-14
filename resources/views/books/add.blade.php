@@ -3,9 +3,9 @@
 @section('content')
 
     <div class="container">
-        <form action="" enctype="multipart/form-data" method="post">
+        <form action="{{ route ('book.create') }}" enctype="multipart/form-data" method="post">
             @csrf
-            @method('PATCH')
+            @method('POST')
 
             <div class="row">
                 <div class="col-8 offset-2">

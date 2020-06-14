@@ -20,7 +20,7 @@ class Book extends Model
     protected $guarded = [];
 
     public function path(){
-        return '/book/' . $this->isbn . '-' . Str::slug($this->title);
+        return '/book/' . $this->id . '-' . Str::slug($this->title);
     }
 
     public function checkout(User $user) {

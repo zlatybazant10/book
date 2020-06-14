@@ -44,3 +44,5 @@ Route::get('/create/{book}', 'ReviewController@index');
 Route::post('/comments/create/{book}', 'ReviewController@store')->name('comment.create');
 
 Route::get('/add', 'AddBookController@index');
+Route::post('/add', 'AddBookController@store')->name('book.create');
+Route::patch('/add/{book}-{slug}', 'AddBookController@update');
