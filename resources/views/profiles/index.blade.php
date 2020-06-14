@@ -15,11 +15,14 @@
                 <a href="/books">Get books</a>
                 @endcan
             </div>
+            <div class="d-flex justify-content-between align-items-baseline">
                 @can ('update', $user->profile)
                 <a href="/profile/{{$user->id}}/edit">Edit profile</a>
                 @endcan
+                <a href="/add">Add book to database</a>
+            </div>
             <div class="d-flex">
-                <div class="pr-5"><strong>0</strong> books</div>
+                <div class="pr-5"><strong>{{$user->reservedBooks->count()}}</strong> books</div>
             </div>
             <div class="pt-4 font-weight-bold">{{ $user->profile->title }}</div>
             <div>{{ $user->profile->description }}</div>
@@ -46,13 +49,15 @@
                     <a href="/bookDownload/{{$book->download}}" download="">Download PDF</a>
                 </div>
                 @endcan
+                <div class="row pl-5 pt-2">
                 <form action="{{ route('checkin.update', ['book' => $book]) }}" method="POST"
                       enctype="multipart/form-data">
                     @csrf
                     @method('PATCH')
 
-                    <button type="submit" class="btn btn-primary">Order book</button>
+                    <button type="submit" class="btn btn-primary">Return book</button>
                 </form>
+                </div>
             </div>
         </div>
     @endforeach

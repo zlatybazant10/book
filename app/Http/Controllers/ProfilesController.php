@@ -30,13 +30,16 @@ class ProfilesController extends Controller
 
     public function index(User $user){
 
-        $reservations = \App\Reservation::where('user_id', $user->id)->latest()->paginate(6);
+        //$reservations = \App\Reservation::where('user_id', $user->id)->latest()->paginate(6);
+        $reservations = $user->reservedBooks()->latest()->paginate(6);
         $bookid = [];
         foreach ($reservations as $reservation) {
             array_push($bookid, $reservation->book_id);
         }
 
-        $books = \App\Book::whereIn('id', $bookid)->get();
+        $books = \App\Book::whereIn('id', $bookid)
+
+            ->get();
 
 
         return view('profiles.index', compact('user', 'books'));

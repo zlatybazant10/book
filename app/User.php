@@ -63,7 +63,7 @@ class User extends Authenticatable
 
     public function reservedBooks()
     {
-        return $this->hasMany(Reservation::class);
+        return $this->hasMany(Reservation::class)->whereNull('checked_in_at');
     }
 
     public function comments()
