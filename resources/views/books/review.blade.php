@@ -14,6 +14,14 @@
         <div class="d-flex">
             <a href="/create/{{$book->id}}">Post review here</a>
         </div>
+            @foreach($comments as $comment)
+            <div class="row pt-5">
+                <div>
+                    <h3 class="row pl-5" style="color: #ae1c17"><strong>{{$comment->user_id}}</strong></h3>
+                    <h6 class="row pl-5" style="display: inline-block; width: 800px;  overflow: hidden !important; text-overflow: ellipsis;">{{$comment->comment}}</h6>
+                </div>
+            </div>
+            @endforeach
         </div>
     </div>
 
