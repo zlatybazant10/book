@@ -8,10 +8,8 @@
             {{--<a href="javascript:history.back()">Back to library</a>--}}
             <a href="/books">Back to library</a>
         </div>
-        <div class="d-flex col-8 offset-2">
+        <div class="d-flex col-8 offset-2 justify-content-between align-items-baseline" style="left: 16%">
             <h1><strong>All reviews</strong></h1>
-        </div>
-        <div class="d-flex">
             <a href="/create/{{$book->id}}">Post review here</a>
         </div>
             @foreach($comments as $comment)

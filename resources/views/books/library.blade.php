@@ -6,7 +6,7 @@
             <div class="row">
             <div class="d-flex">
                 {{--<a href="javascript:history.back()">Back to profile</a>--}}
-                <a href="/profile/{{$user->id}}">Back to profile</a>
+                <a href="/profile/{{$user->id}}">Go to profile</a>
             </div>
             @foreach($books as $book)
                 <div class="row pt-5">
