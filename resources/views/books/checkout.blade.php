@@ -5,11 +5,11 @@
     <div class="container">
         <div class="row">
             <div class="d-flex">
-                <a href="javascript:history.back()">Back to library</a>
+                <a href="/books">Back to library</a>
             </div>
         </div>
-        <div>
-            <h1>Book added to your profile</h1>
+        <div class="d-flex col-9 offset-3">
+            <h1><strong>Book added to your profile</strong></h1>
         </div>
     </div>
 

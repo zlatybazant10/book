@@ -31,7 +31,7 @@
 
         {{--<h3 class="row pl-5" style="color: #ae1c17"><strong>{{$book->title}}</strong></h3>--}}
         <div class="row pt-5">
-            <div class="col-3">
+            <div class="col-2">
                 <img src="/bookPics/{{$book->img}}" class="w-100" style="">
             </div>
             <div>
