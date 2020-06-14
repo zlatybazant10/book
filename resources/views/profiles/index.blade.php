@@ -19,7 +19,12 @@
                 @can ('update', $user->profile)
                 <a href="/profile/{{$user->id}}/edit">Edit profile</a>
                 @endcan
-                <a href="/add">Add book to database</a>
+
+                @can('view', $user->profile)
+                    @can('adminUser', $user->profile)
+                        <a href="/add">Add book to database</a>
+                    @endcan
+                @endcan
             </div>
             <div class="d-flex">
                 <div class="pr-5"><strong>{{$user->reservedBooks->count()}}</strong> books</div>
