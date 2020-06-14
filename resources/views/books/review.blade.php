@@ -16,9 +16,11 @@
         </div>
             @foreach($comments as $comment)
             <div class="row pt-5">
+
                 <div>
-                    <h3 class="row pl-5" style="color: #ae1c17"><strong>{{$comment->user_id}}</strong></h3>
-                    <h6 class="row pl-5" style="display: inline-block; width: 800px;  overflow: hidden !important; text-overflow: ellipsis;">{{$comment->comment}}</h6>
+                    <h3 class="row pl-5" style="color: #ae1c17">author: <strong>{{$comment->author->username}}</strong></h3>
+                    <h6 class="row pl-5" style="display: inline-block; width: 800px;  overflow: hidden !important; text-overflow: ellipsis;">comment: {{$comment->comment}}</h6>
+                    <h6 class="row pl-5" style="display: inline-block; width: 800px;  overflow: hidden !important; text-overflow: ellipsis;">comment: {{$comment->created_at}}</h6>
                 </div>
             </div>
             @endforeach

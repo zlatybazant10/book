@@ -46,6 +46,13 @@
                     <a href="/bookDownload/{{$book->download}}" download="">Download PDF</a>
                 </div>
                 @endcan
+                <form action="{{ route('checkin.update', ['book' => $book]) }}" method="POST"
+                      enctype="multipart/form-data">
+                    @csrf
+                    @method('PATCH')
+
+                    <button type="submit" class="btn btn-primary">Order book</button>
+                </form>
             </div>
         </div>
     @endforeach

@@ -35,7 +35,7 @@ Route::patch('/books/{book}-{slug}', 'BookController@update');
 Route::delete('/books/{book}-{slug}', 'BookController@destroy');
 
 Route::patch('/checkout/{book}', 'CheckoutController@update')->name('checkout.update');
-Route::patch('/checkin/{id}', 'CheckinController@update')->name('checkin.update');
+Route::patch('/checkin/{book}', 'CheckinController@update')->name('checkin.update');
 
 //Route::post('/comments/{id}', 'CommentsController@post');
 //Route::get('/comments/create', 'CommentsController@create');

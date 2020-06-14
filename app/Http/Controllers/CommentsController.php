@@ -22,7 +22,9 @@ class CommentsController extends Controller
     public function index(Book $book)
     {
 
-        $comments = $book->comments();
+        $comments = $book->comments()->latest()->paginate(6);
+
+        //dd($comments);
 
         return view('books.review', compact('comments', 'book'));
     }

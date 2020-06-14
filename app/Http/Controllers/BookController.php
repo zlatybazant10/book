@@ -12,6 +12,7 @@ class BookController extends Controller
     public function index(User $user){
 
         $books = Book::all();
+        $user = auth()->user();
         return view('books.library', compact('books', 'user'));
     }
 
