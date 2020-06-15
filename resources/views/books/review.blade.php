@@ -22,14 +22,28 @@
                     <h6 class="row pl-5">Dislikes: <strong>{{$comment->dislike->count()}}</strong></h6>
                     <h6 class="row pl-5" style="display: inline-block; width: 800px;  overflow: hidden !important; text-overflow: ellipsis;">posted on: {{$comment->created_at}}</h6>
 
-                    <form action="{{ route('likes.create', ['comment' => $comment]) }}" method="POST"
+                    @if( \App\Likes::where([["user_id", '=', $user->id],["comment_id", '=',$comment->id ],])->count() < 1)
+                        <form action="{{ route('likes.create', ['comment' => $comment]) }}" method="POST"
+                              enctype="multipart/form-data">
+                            @csrf
+                            @method('POST')
+
+                            <button type="submit" class="btn btn-primary">Like</button>
+                        </form>
+                    @else
+                        <span class="invalid-feedback" role="alert">
+                            <strong>You have already liked this message</strong>
+                        </span>
+                    @endif
+                    {{--<form action="{{ route('likes.create', ['comment' => $comment]) }}" method="POST"
                           enctype="multipart/form-data">
                         @csrf
                         @method('POST')
 
                         <button type="submit" class="btn btn-primary">Like</button>
-                    </form>
+                    </form>--}}
 
+                    @if( \App\Likes::where([["user_id", '=', $user->id],["comment_id", '=',$comment->id ],])->count() < 1)
                     <form action="{{ route('dislikes.create', ['comment' => $comment]) }}" method="POST"
                           enctype="multipart/form-data">
                         @csrf
@@ -37,7 +51,12 @@
 
                         <button type="submit" class="btn btn-primary">Dislike</button>
                     </form>
-                    
+                    @else
+                        <span class="invalid-feedback" role="alert">
+                            <strong>You have already disliked this message</strong>
+                        </span>
+                    @endif
+
                 </div>
             </div>
             @endforeach

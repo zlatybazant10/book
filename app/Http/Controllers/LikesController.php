@@ -30,6 +30,6 @@ class LikesController extends Controller
             ? auth()->user()->like()->create($data)
             : $likes->delete();
 
-        return redirect('/books');
+        return redirect('/comments/1');
     }
 }

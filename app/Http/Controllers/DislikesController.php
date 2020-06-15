@@ -30,6 +30,6 @@ class DislikesController extends Controller
             ? auth()->user()->dislike()->create($data)
             : $dislikes->delete();
 
-        return redirect('/books');
+        return redirect('/comments/1');
     }
 }
