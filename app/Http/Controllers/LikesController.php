@@ -3,13 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Likes;
 use Illuminate\Http\Request;
 
 class LikesController extends Controller
 {
     public function store(Comment $comment)
     {
-        auth()->user()->like()->create($data);
+
+        $userId = auth()->user()->id;
+
+        $likes = Likes::where([
+            ["user_id", '=', $userId],
+            ["comment_id", '=', $comment->id],
+        ]);
 
         $data = request()->validate([
             //'comment' => 'required',
@@ -19,7 +26,9 @@ class LikesController extends Controller
             'comment_id' => $comment->id,
         ]);
 
-        auth()->user()->like()->create($data);
+        $likes->count()<1
+            ? auth()->user()->like()->create($data)
+            : $likes->delete();
 
         return redirect('/books');
     }

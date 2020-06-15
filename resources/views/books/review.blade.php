@@ -21,6 +21,7 @@
                     <h6 class="row pl-5">Likes: <strong>{{$comment->like->count()}}</strong></h6>
                     <h6 class="row pl-5">Dislikes: <strong>{{$comment->dislike->count()}}</strong></h6>
                     <h6 class="row pl-5" style="display: inline-block; width: 800px;  overflow: hidden !important; text-overflow: ellipsis;">posted on: {{$comment->created_at}}</h6>
+
                     <form action="{{ route('likes.create', ['comment' => $comment]) }}" method="POST"
                           enctype="multipart/form-data">
                         @csrf
@@ -28,6 +29,7 @@
 
                         <button type="submit" class="btn btn-primary">Like</button>
                     </form>
+
                     <form action="{{ route('dislikes.create', ['comment' => $comment]) }}" method="POST"
                           enctype="multipart/form-data">
                         @csrf
@@ -35,6 +37,7 @@
 
                         <button type="submit" class="btn btn-primary">Dislike</button>
                     </form>
+                    
                 </div>
             </div>
             @endforeach

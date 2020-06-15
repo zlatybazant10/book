@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Dislikes;
 use Illuminate\Http\Request;
 
 class DislikesController extends Controller
@@ -10,6 +11,12 @@ class DislikesController extends Controller
     public function store(Comment $comment)
     {
 
+        $userId = auth()->user()->id;
+
+        $dislikes = Dislikes::where([
+            ["user_id", '=', $userId],
+            ["comment_id", '=', $comment->id],
+        ]);
 
         $data = request()->validate([
             //'comment' => 'required',
@@ -19,7 +26,9 @@ class DislikesController extends Controller
             'comment_id' => $comment->id,
         ]);
 
-        auth()->user()->dislike()->create($data);
+        $dislikes->count()<1
+            ? auth()->user()->dislike()->create($data)
+            : $dislikes->delete();
 
         return redirect('/books');
     }
