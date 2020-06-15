@@ -20,4 +20,8 @@ class Comment extends Model
         return $this->hasMany(Likes::class);
     }
 
+    public function dislike(){
+        return $this->hasMany(Dislikes::class);
+    }
+
 }

@@ -4,15 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Likes extends Model
+class Dislikes extends Model
 {
     protected $guarded = [];
 
-    public function likesUser(){
+    public function dislikesUser(){
         return $this->belongsTo(User::class);
     }
 
-    public function likesComment(){
+    public function dislikesComment(){
         return $this->belongsTo(Comment::class);
     }
 }

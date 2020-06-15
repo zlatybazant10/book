@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use App\Comment;
 use Illuminate\Http\Request;
 
-class LikesController extends Controller
+class DislikesController extends Controller
 {
     public function store(Comment $comment)
     {
-        auth()->user()->like()->create($data);
+
 
         $data = request()->validate([
             //'comment' => 'required',
@@ -19,7 +19,7 @@ class LikesController extends Controller
             'comment_id' => $comment->id,
         ]);
 
-        auth()->user()->like()->create($data);
+        auth()->user()->dislike()->create($data);
 
         return redirect('/books');
     }
