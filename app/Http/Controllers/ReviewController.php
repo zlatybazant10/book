@@ -46,7 +46,4 @@ class ReviewController extends Controller
         //return redirect('/comments/create');
     }
 
-    public function likes() {
-        
-    }
 }
