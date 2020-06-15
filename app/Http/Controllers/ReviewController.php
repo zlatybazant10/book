@@ -45,4 +45,8 @@ class ReviewController extends Controller
         //return view('books.review', compact('comment'));
         //return redirect('/comments/create');
     }
+
+    public function likes() {
+        
+    }
 }

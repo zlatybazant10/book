@@ -41,7 +41,7 @@ Route::patch('/checkin/{book}', 'CheckinController@update')->name('checkin.updat
 //Route::get('/comments/create', 'CommentsController@create');
 Route::get('/comments/{book}', 'CommentsController@index');
 Route::get('/create/{book}', 'ReviewController@index');
-Route::post('/comments/create/{book}', 'ReviewController@store')->name('comment.create');
+Route::post('/comments/{book}', 'ReviewController@store')->name('comment.create');
 
 Route::get('/add', 'AddBookController@index');
 Route::post('/add', 'AddBookController@store')->name('book.create');
